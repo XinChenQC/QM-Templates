@@ -1,0 +1,19 @@
+memory 30000 mb
+
+molecule h2o {
+    N
+    O 1 1.0
+    O 1 1.0 2 104.5
+    H 2 1.0 1 105.6 3 180
+    units angstrom
+    symmetry c1
+    no_reorient
+    no_com
+}
+
+set {
+    e_convergence 7
+    reference     rhf
+}
+energy(cbs, cbs_metadata=[{"wfn": "hf", "basis": "cc-pv[tq5]z"}, 
+                          {"wfn": "ccsd(t)", "basis": "cc-pv[tq]z"}])
